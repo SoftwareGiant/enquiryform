@@ -6,9 +6,23 @@
     <title>Enquiry</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-100 flex flex-col items-center justify-center h-screen">
-    <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg">
-      <h1 class="text-2xl font-semibold mb-6">Contact Us</h1>
+  <body class="bg-gray-100 flex flex-col items-center justify-center ">
+    <nav class="w-full bg-white shadow-md fixed top-0 left-0 z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex-shrink-0 flex items-center">
+            <img class="h-10 w-auto" src="/Public/softwaregiant_logo.jpg" alt="Logo">
+          </div>
+          <!-- Add additional menu items here if needed -->
+        </div>
+      </div>
+    </nav>
+  
+<div class="flex max-w-lg flex-col mt-20">
+
+
+    <div class=" w-full bg-white p-8 rounded-lg shadow-lg">
+      <h1 class="text-2xl font-semibold mb-6">Enquiry Form</h1>
 
       <form id="form" class="space-y-4" method="POST">
         <div class="mb-6">
@@ -35,6 +49,41 @@
             name="Mobile Number"
             required
           />
+        </div>
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-gray-700"
+            >Email Id</label
+          >
+
+          <input
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 sm:text-sm"
+            type="email"
+            placeholder="Your Email Id"
+            name="Email Id"
+            required
+          />
+        </div>
+
+        <div>
+          <label
+            for="services"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Requirement</label
+          >
+          <select
+            id="services"
+            name="Requirement"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 sm:text-sm"
+          >
+            <option value="" disabled selected>Select a service</option>
+            <option>Web, Mobile Application Design and Development</option>
+            <option>Blockchain Development</option>
+            <option>Graphics Designing</option>
+            <option>UI/UX</option>
+            <option>Video Editing</option>
+            <option>Content Creation</option>
+            <option>Digital Marketing</option>
+          </select>
         </div>
 
         <div class="mb-6">
@@ -72,9 +121,10 @@
 
     <div
       id="message"
-      class="hidden mt-6 px-4 py-3 font-bold text-green-700 bg-green-100 rounded-md"
+      class="hidden mt-6 px-4 py-2 font-bold text-green-700 bg-green-100 rounded-md"
     ></div>
-
+  </div>
+  </body>
     <script>
       document.getElementById("form").addEventListener("submit", function (e) {
         e.preventDefault(); // Prevent the default form submission
@@ -104,6 +154,7 @@
           }
         )
           .then(function (response) {
+            console.log(response);
             // Check if the request was successful
             if (response) {
               return response; // Assuming your script returns JSON response
@@ -114,7 +165,7 @@
           .then(function (data) {
             // Display a success message
             document.getElementById("message").textContent =
-              "Data submitted successfully!";
+              "we will contact you soon...";
             document.getElementById("message").style.display = "block";
             document.getElementById("message").style.backgroundColor = "green";
             document.getElementById("message").style.color = "beige";
